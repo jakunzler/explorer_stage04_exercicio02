@@ -1,5 +1,7 @@
 executionType = prompt("Prezado usuário, seja bem vindo. \n Você deseja executar um exemplo ou inserir novos dados? \n Digite 'Exemplo' ou 'Inserir'").toUpperCase();
 console.log(executionType)
+let numberStudents;
+let numberTests;
 let students = [];
 
 switch (executionType) {
@@ -7,9 +9,9 @@ switch (executionType) {
         numberStudents = Number(prompt('Quantos alunos há na turma?'));
         numberTests = Number(prompt("Quantos testes foram aplicados?"));
 
-        for (ind = 0; ind <= numberStudents; ind++) {
+        for (indStudent = 1; indStudent <= numberStudents; indStudent++) {
             
-            let student = prompt("Qual é o nome completo do(a) aluno(a)?");
+            let student = prompt(`Qual é o nome completo do(a) ${indStudent}º aluno(a)?`);
 
             let middleName = student.split(" ");
             let nameLength = middleName.length;
@@ -18,8 +20,8 @@ switch (executionType) {
             let familyName = middleName.splice(nameLength - 2, 1);
 
             let scores = [];
-            for (ind = 1; ind <= numberTests; ind++) {
-                scores.push(prompt(`Qual é a nota na ${ind}º Prova?`))
+            for (indTest = 1; indTest <= numberTests; indTest++) {
+                scores.push(prompt(`Qual é a nota na ${indTest}º Prova?`))
             }
 
             let average = scores.reduce((a, b) => Number(a) + Number(b), 0) / scores.length;
